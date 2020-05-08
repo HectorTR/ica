@@ -6,7 +6,7 @@ module ieee123_test;
   }
   module powerflow;
   module residential;
-  object triplex_meter:..4 {
+  object triplex_meter:..10 {
   	nominal_voltage 120;
   	phases AS;
   	object house:..4 {
