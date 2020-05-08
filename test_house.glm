@@ -12,6 +12,6 @@ module ieee123_test;
   	object house:..4 {
   		heating_setpoint 68;
   		cooling_setpoint 76;
-  		on_commit "python:my_test.record_house";
+  		on_commit "python:ieee123_test.record_house";
   	};
   }
