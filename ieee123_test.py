@@ -1,4 +1,5 @@
 import os
+import gridlabd
 
 
 def find(criteria):
@@ -18,10 +19,13 @@ def find(criteria):
 
 
 def on_init(t):
-    houses = find("class=house")
-    global recorder
-    recorder = open("house.csv", "w")
-    recorder.write("name,datetime,temperature\n")
+    #houses = find("class=house")
+    #global recorder
+    #recorder = open("house.csv", "w")
+    #recorder.write("name,datetime,temperature\n")
+    objects = gridlabd.get("objects")
+    print(type(objects))
+    print(objects)
     return True
 
 

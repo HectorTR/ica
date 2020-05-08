@@ -15,14 +15,3 @@ module ieee123_test;
   		on_commit "python:ieee123_test.record_house";
   	};
   }
-
-  object meter {
-	name feeder_node;
-	nominal_voltage 2401 V;
-	phases ABCN;
-	object recorder {
-		property measured_real_energy, measured_reactive_energy;
-		file "output/feeder_power/feeder_${RUN_NAME}.csv";
-		interval 1h;
-	};
-  }
