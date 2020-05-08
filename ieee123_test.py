@@ -1,5 +1,6 @@
 import os
 import gridlabd
+from pprint import pprint
 
 
 def find(criteria):
@@ -24,8 +25,13 @@ def on_init(t):
     #recorder = open("house.csv", "w")
     #recorder.write("name,datetime,temperature\n")
     objects = gridlabd.get("objects")
-    print(type(objects))
-    print(objects)
+    pprint(type(objects))
+    pprint(len(objects))
+    pprint(objects)
+    for obj in objects:
+        pprint(type(obj))
+        pprint(len(obj))
+        pprint(obj)
     return True
 
 
