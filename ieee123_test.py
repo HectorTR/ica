@@ -20,19 +20,11 @@ def find(criteria):
 
 
 def on_init(t):
-    #houses = find("class=house")
-    #global recorder
-    #recorder = open("house.csv", "w")
-    #recorder.write("name,datetime,temperature\n")
-    objects = gridlabd.get("objects")
-    pprint(type(objects))
-    pprint(len(objects))
-    pprint(objects)
-    for obj in objects:
-        pprint(type(obj))
-        pprint(len(obj))
-        pprint(obj)
-    return True
+    houses = find("class=house")
+    global recorder
+    recorder = open("house.csv", "w")
+    recorder.write("name,datetime,temperature\n")
+
 
 
 def record_house(name, t):
