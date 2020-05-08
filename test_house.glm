@@ -1,0 +1,17 @@
+module ieee123_test;
+  clock {
+  	timezone "US/CA/San Francisco";
+  	starttime "2019-01-01 00:00:00";
+  	stoptime "2019-02-01 00:00:00";
+  }
+  module powerflow;
+  module residential;
+  object triplex_meter:..10 {
+  	nominal_voltage 120;
+  	phases AS;
+  	object house:..4 {
+  		heating_setpoint 68;
+  		cooling_setpoint 76;
+  		on_commit "python:my_test.record_house";
+  	};
+  }
