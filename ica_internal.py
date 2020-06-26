@@ -29,7 +29,9 @@ def on_init(t):
     #TODO: Add 'ica_' tag to all globals. Option on converter to set a prefix.
   
     #If Option 2, read config file directly into this .py script. Create a global for each entry.
-    # config_globals = pd.read_csv("config/ica_config.csv")
+    config_globals = pd.read_csv("config/ica_config.csv")
+    print(type(config_globals))
+    
     # for index in range(len(config_globals)):
     #     gridlabd.set_global("ica_" + config_globals.iloc[index, 0], str(config_globals.iloc[index, 1]))
   
