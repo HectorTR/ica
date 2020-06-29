@@ -2,7 +2,7 @@
 
 ## Development
 
-Maximum generation injection per node in any poin in the distribution grid 
+Maximum generation injection per node in any point in the distribution grid 
 
 ## Constraints to be evaluated 
 
