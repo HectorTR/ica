@@ -23,30 +23,30 @@ ON_INIT
 '''
 import pandas as pd
 
-def on_init(t):
+def on_init():#t)
     print("initializing")
     #If Option 1, global thresholds will have already been set through csv converter
     #TODO: Add 'ica_' tag to all globals. Option on converter to set a prefix.
   
     #If Option 2, read config file directly into this .py script. Create a global for each entry.
     config_globals = pd.read_csv("config/ica_config.csv")
-    print(type(config_globals))
-    
-    # for index in range(len(config_globals)):
-    #     gridlabd.set_global("ica_" + config_globals.iloc[index, 0], str(config_globals.iloc[index, 1]))
+    print(config_globals.head(10))
+
+    for index in range(len(config_globals)):
+        gridlabd.set_global("ica_" + config_globals.iloc[index, 0], str(config_globals.iloc[index, 1]))
   
-    # #Create a dict of all ICA globals with info on how to find library values
-    # #RATING: set the threshold as a % of the max rating. DEVIATION: set the threshold as a +-% from the nominal rating.
-    # ica_globals_dict = {'ica_underground_line':{'configuration':1, 'rating_summer_continuous':'rating','rating_winter_continuous':'rating'},\
-    #                 'ica_overhead_line':{'configuration':1, 'rating_summer_continuous':'rating', 'rating_winter_continuous':'rating'},\
-    #                 'ica_transformer':{'configuration':1, 'power_rating':'rating', 'powerA_rating':'rating', 'powerB_rating':'rating', 'powerC_rating':'rating', 'primary_voltage':'deviation', 'secondary_voltage':'deviation'},\
-    #                 'ica_regulator':{'configuration':1, 'primary_voltage':'none', 'secondary_voltage':'none'},\
-    #                 'ica_substation':{'configuration':0, 'nominal_voltage':'deviation'},\
-    #                 'ica_triplex_meter':{'configuration':0, 'nominal_voltage':'deviation'},\
-    #                 'ica_meter':{'configuration':0, 'nominal_voltage':'deviation'}}
+     #Create a dict of all ICA globals with info on how to find library values
+     #RATING: set the threshold as a % of the max rating. DEVIATION: set the threshold as a +-% from the nominal rating.
+    ica_globals_dict = {'ica_underground_line':{'configuration':1, 'rating_summer_continuous':'rating','rating_winter_continuous':'rating'},\
+                     'ica_overhead_line':{'configuration':1, 'rating_summer_continuous':'rating', 'rating_winter_continuous':'rating'},\
+                     'ica_transformer':{'configuration':1, 'power_rating':'rating', 'powerA_rating':'rating', 'powerB_rating':'rating', 'powerC_rating':'rating', 'primary_voltage':'deviation', 'secondary_voltage':'deviation'},\
+                     'ica_regulator':{'configuration':1, 'primary_voltage':'none', 'secondary_voltage':'none'},\
+                     'ica_substation':{'configuration':0, 'nominal_voltage':'deviation'},\
+                     'ica_triplex_meter':{'configuration':0, 'nominal_voltage':'deviation'},\
+                     'ica_meter':{'configuration':0, 'nominal_voltage':'deviation'}}
    
 
-    # global_list = gridlabd.get("globals")
+    global_list = gridlabd.get("globals")
    
   
     # for g in global_list:
@@ -116,3 +116,4 @@ If threshold is exceeded, record the object, property, and value, and exit.
 def on_commit(t):
     return True
 
+on_init()
