@@ -22,6 +22,7 @@ ON_INIT
 3) Populates a global master dictionary with each object, properties to check, and their thresholds.
 '''
 import pandas as pd
+import gridlabd
 
 def on_init():#t)
     print("initializing")
