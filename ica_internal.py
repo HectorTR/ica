@@ -35,6 +35,9 @@ def on_init():#t)
 
     for index in range(len(config_globals)):
         gridlabd.set_global("ica_" + config_globals.iloc[index, 0], str(config_globals.iloc[index, 1]))
+        global_list = gridlabd.get("globals")
+        print(global_list)
+
   
      #Create a dict of all ICA globals with info on how to find library values
      #RATING: set the threshold as a % of the max rating. DEVIATION: set the threshold as a +-% from the nominal rating.
