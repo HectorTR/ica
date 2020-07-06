@@ -24,19 +24,19 @@ ON_INIT
 import pandas as pd
 import gridlabd
 
-def on_init():#t)
+def on_init(t):
     print("initializing")
     #If Option 1, global thresholds will have already been set through csv converter
     #TODO: Add 'ica_' tag to all globals. Option on converter to set a prefix.
   
     #If Option 2, read config file directly into this .py script. Create a global for each entry.
     config_globals = pd.read_csv("config/ica_config.csv")
-    print(config_globals.head(10))
+    #print(config_globals.head(10))
 
     for index in range(len(config_globals)):
         gridlabd.set_global("ica_" + config_globals.iloc[index, 0], str(config_globals.iloc[index, 1]))
-        global_list = gridlabd.get("globals")
-        print(global_list)
+        #global_list = gridlabd.get("globals")
+        #print(global_list)
 
   
      #Create a dict of all ICA globals with info on how to find library values
@@ -51,7 +51,7 @@ def on_init():#t)
    
 
     global_list = gridlabd.get("globals")
-   
+    print(global_list)
   
     # for g in global_list:
     #     #Only consider globals specific to ICA tests
@@ -120,4 +120,4 @@ If threshold is exceeded, record the object, property, and value, and exit.
 def on_commit(t):
     return True
 
-on_init()
+
